@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--CameraVC-->
         <scene sceneID="tne-QT-ifu">
@@ -16,12 +21,87 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiZ-xc-zVX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDA-Qy-hUT" customClass="RoundedShadowView" customModule="vision" customModuleProvider="target">
+                                <rect key="frame" x="20" y="50" width="335" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1mE-gK-2bH">
+                                        <rect key="frame" x="8" y="8" width="319" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="The Names of items caputued" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-d1-Hlm">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="30"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <color key="textColor" red="1" green="0.52107988159999996" blue="0.03627530575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIDENCE " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVH-oV-Ve9">
+                                                <rect key="frame" x="0.0" y="31" width="319" height="13"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1mE-gK-2bH" firstAttribute="leading" secondItem="SDA-Qy-hUT" secondAttribute="leading" constant="8" id="5Tr-yb-IfH"/>
+                                    <constraint firstAttribute="height" constant="60" id="6Hp-MU-ZkE"/>
+                                    <constraint firstItem="1mE-gK-2bH" firstAttribute="top" secondItem="SDA-Qy-hUT" secondAttribute="top" constant="8" id="kqs-R0-xyk"/>
+                                    <constraint firstAttribute="bottom" secondItem="1mE-gK-2bH" secondAttribute="bottom" constant="8" id="lg5-Bd-SBl"/>
+                                    <constraint firstAttribute="trailing" secondItem="1mE-gK-2bH" secondAttribute="trailing" constant="8" id="xCn-aO-go3"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="15I-cW-EJ5" customClass="RoundedShadowImageView" customModule="vision" customModuleProvider="target">
+                                <rect key="frame" x="280" y="517" width="75" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="WdW-lT-YZa"/>
+                                    <constraint firstAttribute="width" constant="75" id="zHQ-go-JmA"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Ux-Xep" customClass="RoundedShadowButton" customModule="vision" customModuleProvider="target">
+                                <rect key="frame" x="20" y="612" width="100" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Tfu-W9-Cdx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Flash Off">
+                                    <color key="titleColor" red="1" green="0.52107988161996244" blue="0.03627530575221416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YbQ-Ux-Xep" secondAttribute="bottom" constant="20" id="0EA-BR-q5M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xiZ-xc-zVX" secondAttribute="trailing" id="CO6-kJ-Bw4"/>
+                            <constraint firstItem="YbQ-Ux-Xep" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="FPS-Jn-bZU"/>
+                            <constraint firstItem="xiZ-xc-zVX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="L14-qn-o1O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xiZ-xc-zVX" secondAttribute="bottom" id="PDs-yN-4y9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="15I-cW-EJ5" secondAttribute="trailing" constant="20" id="cJW-HF-3cy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SDA-Qy-hUT" secondAttribute="trailing" constant="20" id="dwt-J1-QkS"/>
+                            <constraint firstItem="SDA-Qy-hUT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="f4a-PE-bpn"/>
+                            <constraint firstItem="SDA-Qy-hUT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="g3m-ya-laR"/>
+                            <constraint firstItem="xiZ-xc-zVX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h2B-mg-xfN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="15I-cW-EJ5" secondAttribute="bottom" constant="20" id="jdm-Be-XlS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="xiZ-xc-zVX" id="6O9-ci-d2m"/>
+                        <outlet property="captureImageView" destination="15I-cW-EJ5" id="LTO-X6-dOg"/>
+                        <outlet property="confidenceLabel" destination="gVH-oV-Ve9" id="XdA-Lx-PS0"/>
+                        <outlet property="flashButton" destination="YbQ-Ux-Xep" id="3Vb-jh-oOw"/>
+                        <outlet property="itemLabel" destination="Arj-d1-Hlm" id="AwK-t8-rN6"/>
+                        <outlet property="roundedLabelView" destination="SDA-Qy-hUT" id="XLS-11-0Dt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
     </scenes>
 </document>
