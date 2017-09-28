@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreML
-
+import Vision
 
 class CameraVC: UIViewController {
 
@@ -82,6 +82,7 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
             
             do {
                 
+                // MODEL STUFF HERE
             } catch {
                 debugPrint(error)
             }
