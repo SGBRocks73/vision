@@ -17,7 +17,7 @@
         <!--CameraVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CameraVC" customModule="vision" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CameraVC" customModule="SeeMeUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,13 +25,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiZ-xc-zVX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDA-Qy-hUT" customClass="RoundedShadowView" customModule="vision" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDA-Qy-hUT" customClass="RoundedShadowView" customModule="SeeMeUp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="50" width="335" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1mE-gK-2bH">
                                         <rect key="frame" x="8" y="8" width="319" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="The Names of items caputued" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-d1-Hlm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="The names of items caputued" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-d1-Hlm">
                                                 <rect key="frame" x="0.0" y="0.0" width="319" height="30"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <color key="textColor" red="1" green="0.52107988159999996" blue="0.03627530575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,14 +55,14 @@
                                     <constraint firstAttribute="trailing" secondItem="1mE-gK-2bH" secondAttribute="trailing" constant="8" id="xCn-aO-go3"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="15I-cW-EJ5" customClass="RoundedShadowImageView" customModule="vision" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="15I-cW-EJ5" customClass="RoundedShadowImageView" customModule="SeeMeUp" customModuleProvider="target">
                                 <rect key="frame" x="280" y="517" width="75" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="WdW-lT-YZa"/>
                                     <constraint firstAttribute="width" constant="75" id="zHQ-go-JmA"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Ux-Xep" customClass="RoundedShadowButton" customModule="vision" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Ux-Xep" customClass="RoundedShadowButton" customModule="SeeMeUp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="612" width="100" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -72,6 +72,9 @@
                                 <state key="normal" title="Flash Off">
                                     <color key="titleColor" red="1" green="0.52107988161996244" blue="0.03627530575221416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="flashButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5gZ-3M-Dgj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

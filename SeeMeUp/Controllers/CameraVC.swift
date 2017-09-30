@@ -1,6 +1,6 @@
 //
 //  CameraVC.swift
-//  vision
+//  SeeMeUp
 //
 //  Created by Steve Baker on 28/9/17.
 //  Copyright © 2017 SGB Imagery. All rights reserved.
@@ -10,6 +10,11 @@ import UIKit
 import AVFoundation
 import CoreML
 import Vision
+
+enum FlashState {
+    case off
+    case on
+}
 
 class CameraVC: UIViewController {
 
@@ -24,10 +29,10 @@ class CameraVC: UIViewController {
     var cameraOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
+    var flashControl: FlashState = .off
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,9 +73,44 @@ class CameraVC: UIViewController {
     @objc func didTapCameraView() {
         let settings = AVCapturePhotoSettings()
         settings.previewPhotoFormat = settings.embeddedThumbnailPhotoFormat
+        
+        if flashControl == .off {
+            settings.flashMode = .off
+        } else {
+            settings.flashMode = .on
+        }
         cameraOutput.capturePhoto(with: settings, delegate: self)
-    }
 
+    }
+    
+    func resultsMethod(request: VNRequest, error: Error?) {
+        guard let results = request.results as? [VNClassificationObservation] else { return }
+        for classification in results {
+            print(classification.identifier)
+            print(classification.confidence)
+            if classification.confidence < 0.5 {
+                self.itemLabel.text = "I'm not sure, try again"
+                self.confidenceLabel.text = ""
+                break
+            } else {
+                self.itemLabel.text = classification.identifier
+                confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
+                break
+            }
+        }
+    }
+    
+    @IBAction func flashButtonPressed(_ sender: Any) {
+        switch flashControl {
+        case .off:
+            flashButton.setTitle("Flash On", for: .normal)
+            flashControl = .on
+        case .on:
+            flashButton.setTitle("Flash Off", for: .normal)
+            flashControl = .off
+        }
+    }
+    
 }
 
 extension CameraVC: AVCapturePhotoCaptureDelegate {
@@ -81,8 +121,10 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
             photoData = photo.fileDataRepresentation()
             
             do {
-                
-                // MODEL STUFF HERE
+                let model = try VNCoreMLModel(for: SqueezeNet().model)
+                let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod)
+                let handler = VNImageRequestHandler(data: photoData!)
+                try handler.perform([request])
             } catch {
                 debugPrint(error)
             }

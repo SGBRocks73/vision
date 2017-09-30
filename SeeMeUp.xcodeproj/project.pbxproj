@@ -20,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DE39EA521F7DBEFC0081C977 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		DE41D7BC1F7CAC300005B908 /* SeeMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE41D7BF1F7CAC300005B908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE41D7C11F7CAC300005B908 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -48,7 +47,6 @@
 		DE39EA511F7DBEFC0081C977 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DE39EA521F7DBEFC0081C977 /* Vision.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
